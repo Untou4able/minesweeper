@@ -50,5 +50,18 @@ for x in range(settings.GRID_SIZE):
 
 cell.Cell.randomize_mines()
 
+cell.Cell.create_cell_count_label(left_frame)
+cell.Cell._cell_count_label.place(x=0, y=0)
+
+game_title = tkinter.Label(
+    top_frame,
+    bg='black',
+    fg='white',
+    text='Minesweeper Game',
+    font=('', 36)
+)
+
+game_title.place(x=utils.width_prct(25), y=0)
+
 # Start application
 root.mainloop()
