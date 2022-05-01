@@ -4,7 +4,7 @@ import tkinter
 import random
 
 
-import settings
+from . import settings
 
 class Cell:
 
