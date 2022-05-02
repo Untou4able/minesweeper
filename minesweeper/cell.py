@@ -1,16 +1,13 @@
 import ctypes
 import sys
 import tkinter
-import random
 
 
 from . import settings
 
 class Cell:
 
-    _all = []
     _cell_count_label = None
-    _cell_count = settings.CELL_COUNT
 
     def __init__(self, x, y, is_mine=False):
         self.is_mine = is_mine
@@ -19,11 +16,6 @@ class Cell:
         self._x = x
         self._y = y
         self._is_open = False
-
-        # Append the object to the Cell.all list
-        # i dont argee with this aproach
-        # i think it's batter to have Game class responsible for tracking cells
-        Cell._all.append(self)
 
     def create_btn_object(self, location):
         """
@@ -115,12 +107,6 @@ class Cell:
         else:
             self._cell.configure(bg='SystemButtonFace')
             self._is_marked = False
-
-    @staticmethod
-    def randomize_mines():
-        to_be_mines = random.sample(Cell._all, settings.MINES_COUNT)
-        for cell in to_be_mines:
-            cell.is_mine = True
 
     def __repr__(self):
         return f'Cell({self._x}, {self._y})'

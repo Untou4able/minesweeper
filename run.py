@@ -40,13 +40,14 @@ center_frame.place(
     y=minesweeper.utils.height_prct(25)
 )
 
+game = minesweeper.Game()
+cells = game.cells
+
 for x in range(minesweeper.settings.GRID_SIZE):
     for y in range(minesweeper.settings.GRID_SIZE):
-        c = minesweeper.cell.Cell(x, y)
+        c = cells[y * minesweeper.settings.GRID_SIZE + x]
         c.create_btn_object(center_frame)
         c._cell.grid(column=x, row=y)
-
-minesweeper.cell.Cell.randomize_mines()
 
 minesweeper.cell.Cell.create_cell_count_label(left_frame)
 minesweeper.cell.Cell._cell_count_label.place(x=0, y=0)
