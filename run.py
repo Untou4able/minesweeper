@@ -43,8 +43,8 @@ center_frame.place(
 game = minesweeper.Game()
 cells = game.cells
 
-for x in range(minesweeper.settings.GRID_SIZE):
-    for y in range(minesweeper.settings.GRID_SIZE):
+for y in range(minesweeper.settings.GRID_SIZE):
+    for x in range(minesweeper.settings.GRID_SIZE):
         c = cells[y * minesweeper.settings.GRID_SIZE + x]
         tk_cell = minesweeper.cell.TkCell(c, game)
         tk_cell.create_btn_object(center_frame)

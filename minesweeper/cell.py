@@ -53,9 +53,9 @@ class TkCell:
         if self._game_cell.is_mine:
             self.show_mine()
         else:
-            if self._game.surrounding_mines_counter(self._game_cell._x, self._game_cell._y) == 0:
-                for cell in self._game.surrounding_cells(self._game_cell._x, self._game_cell._y):
-                    cell.show_cell()
+            #if self._game.surrounding_mines_counter(self._game_cell._x, self._game_cell._y) == 0:
+            #    for cell in self._game.surrounding_cells(self._game_cell._x, self._game_cell._y):
+            #        cell.show_cell()
             self.show_cell()
             if self._game._cell_count == settings.MINES_COUNT:
                 ctypes.windll.user32.MessageBoxW(0, 'You\'ve won', 'Game over', 0)
