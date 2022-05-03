@@ -46,11 +46,12 @@ cells = game.cells
 for x in range(minesweeper.settings.GRID_SIZE):
     for y in range(minesweeper.settings.GRID_SIZE):
         c = cells[y * minesweeper.settings.GRID_SIZE + x]
-        c.create_btn_object(center_frame)
-        c._cell.grid(column=x, row=y)
+        tk_cell = minesweeper.cell.TkCell(c, game)
+        tk_cell.create_btn_object(center_frame)
+        tk_cell._cell.grid(column=x, row=y)
 
-minesweeper.cell.Cell.create_cell_count_label(left_frame)
-minesweeper.cell.Cell._cell_count_label.place(x=0, y=0)
+#minesweeper.cell.Cell.create_cell_count_label(left_frame)
+#minesweeper.cell.Cell._cell_count_label.place(x=0, y=0)
 
 game_title = tkinter.Label(
     top_frame,

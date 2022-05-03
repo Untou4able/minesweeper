@@ -14,7 +14,6 @@ class Game:
     _cell_count = settings.CELL_COUNT
 
     def __init__(self, *args, **kwargs) -> None:
-        self._cells = []
         self.new_game()
 
     @property
@@ -40,10 +39,11 @@ class Game:
         self._set_mines()
 
     def _generate_cells(self) -> None:
-        if not self._cells:
-            for y, x in itertools.product(range(settings.GRID_SIZE), range(settings.GRID_SIZE)):
-                c = Cell(x, y)
-                self._cells.append(c)
+        #if not self._cells:
+        self._cells = []
+        for y, x in itertools.product(range(settings.GRID_SIZE), range(settings.GRID_SIZE)):
+            c = Cell(x, y)
+            self._cells.append(c)
 
     def _set_mines(self) -> None:
         to_be_mines = random.sample(self._cells, settings.MINES_COUNT)
