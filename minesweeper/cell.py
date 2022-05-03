@@ -70,34 +70,6 @@ class Cell:
             Cell._cell_count_label.configure(text=f'Cells Left:{Cell._cell_count}')
         self._is_open = True
 
-    @property
-    def surrounding_cells(self):
-        cells = [
-            self.get_cell_by_axis(self._x - 1, self._y - 1),
-            self.get_cell_by_axis(self._x - 1, self._y),
-            self.get_cell_by_axis(self._x - 1, self._y + 1),
-            self.get_cell_by_axis(self._x, self._y - 1),
-            self.get_cell_by_axis(self._x + 1, self._y - 1),
-            self.get_cell_by_axis(self._x + 1, self._y),
-            self.get_cell_by_axis(self._x + 1, self._y + 1),
-            self.get_cell_by_axis(self._x, self._y + 1)
-        ]
-        cells = [cell for cell in cells if cell is not None]
-        return cells
-
-    @property
-    def surrounding_mines_counter(self):
-        counter = 0
-        for cell in self.surrounding_cells:
-            counter += cell.is_mine
-        return counter
-
-    def get_cell_by_axis(self, x, y):
-        """ Bad implementation by iterating over _all list """
-        for cell in Cell._all:
-            if cell._x == x and cell._y == y:
-                return cell
-
     def right_click_action(self, event):
         if self._is_open:
             return
